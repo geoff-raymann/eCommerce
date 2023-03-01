@@ -2,6 +2,7 @@ import braintree
 from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 from orders.models import Order
+from .tasks import payment_completed
 
 
 # Create your views here.
@@ -32,16 +33,19 @@ def payment_process(request):
             # store the unique transaction id
             order.braintree_id = result.transaction.id
             order.save()
+            # Launch asynchronous task
+            payment_completed.delay(order.id)
             return redirect('payment:done')
         else:
             return redirect('payment:canceled')
     else:
         #  Generate token
         client_token = gateway.client_token.generate()
-        return render(request, 'payment/process.html', {
-            'order': order,
-            'client_token': client_token
-        })
+
+    return render(request, 'payment/process.html', {
+        'order': order,
+        'client_token': client_token
+    })
     
 def payment_done(request):
     return render(request, 'payment/done.html')

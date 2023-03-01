@@ -54,9 +54,8 @@
 
                 submit.removeAttribute('disabled');
 
-                form.addEeventListener('submit', function (event) {
+                form.addEventListener('submit', function (event) {
                     event.preventDefault();
-
                     hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
                         if (tokenizeErr) {
                             console.error(tokenizeErr);
