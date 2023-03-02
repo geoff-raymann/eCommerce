@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-02 15:00+0300\n"
-"PO-Revision-Date: 2023-03-02 13:13+0000\n"
+"POT-Creation-Date: 2023-03-03 00:01+0300\n"
+"PO-Revision-Date: 2023-03-02 20:52+0000\n"
 "Last-Translator:   <odiwuorgeoff50@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -21,31 +21,63 @@ msgstr ""
 
 #: cart/forms.py:7
 msgid "Quantity"
-msgstr "Cantidad"
+msgstr ""
 
 #: coupons/forms.py:5
 msgid "Coupon"
-msgstr "Cupón"
-
-#: myshop/settings.py:158
-msgid "English"
-msgstr "Inglés"
+msgstr ""
 
 #: myshop/settings.py:159
+msgid "English"
+msgstr ""
+
+#: myshop/settings.py:160
 msgid "Spanish"
-msgstr "Español"
+msgstr ""
+
+#: myshop/urls.py:24
+msgid "admin/"
+msgstr ""
+
+#: myshop/urls.py:25
+msgid "cart/"
+msgstr ""
+
+#: myshop/urls.py:26
+msgid "orders/"
+msgstr ""
+
+#: myshop/urls.py:27
+msgid "payment/"
+msgstr ""
+
+#: myshop/urls.py:28
+msgid "coupons/"
+msgstr ""
+
+#: payment/urls.py:8
+msgid "process/"
+msgstr ""
+
+#: payment/urls.py:9
+msgid "done/"
+msgstr ""
+
+#: payment/urls.py:10
+msgid "canceled/"
+msgstr ""
 
 #: shop/templates/shop/base.html:9
 msgid "My Shop"
-msgstr "Mi tienda"
+msgstr ""
 
 #: shop/templates/shop/base.html:14
 msgid "Ray Mann's Shop"
-msgstr "La tienda de Ray Mann"
+msgstr ""
 
 #: shop/templates/shop/base.html:20
 msgid "Your cart"
-msgstr "Tu carrito"
+msgstr ""
 
 #: shop/templates/shop/base.html:22
 #, python-format
@@ -58,29 +90,25 @@ msgid_plural ""
 "                            %(items)s items, $%(total)s\n"
 "                        "
 msgstr[0] ""
-"\n"
-"artículo"
 msgstr[1] ""
-"\n"
-"elementos"
 
 #: shop/templates/shop/base.html:29
 msgid "Your cart is empty."
-msgstr "Tu carrito esta vacío."
+msgstr ""
 
 #: shop/templates/shop/product/detail.html:22
 msgid "Add to cart"
-msgstr "Añadir a la cesta"
+msgstr ""
 
 #: shop/templates/shop/product/list.html:8
 #: shop/templates/shop/product/list.html:25
 msgid "Products"
-msgstr "Productos"
+msgstr ""
 
 #: shop/templates/shop/product/list.html:12
 msgid "Categories"
-msgstr "Categorías"
+msgstr ""
 
 #: shop/templates/shop/product/list.html:15
 msgid "All"
-msgstr "Todo"
+msgstr ""
