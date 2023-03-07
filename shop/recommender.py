@@ -1,4 +1,4 @@
-import redis 
+import redis
 from django.conf import settings
 from .models import Product
 
@@ -7,7 +7,7 @@ r = redis.Redis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.
 
 class Recommender(object):
     def get_product_key(self, id):
-        return f'prodcut:{id}:purchased_with'
+        return f'product:{id}:purchased_with'
     
     def products_bought(self, products):
         product_ids = [p.id for p in products]
@@ -22,7 +22,7 @@ class Recommender(object):
         product_ids = [p.id for p in products]
         if len(products) == 1:
             #  only 1 product
-            suggestions = r.zrange(self.get_product_key(product_ids[0]), 0, -1, desc=True)[max_results]
+            suggestions = r.zrange(self.get_product_key(product_ids[0]), 0, -1, desc=True)[:max_results]
         else:
             # generate a temporary key
             flat_ids = ''.join([str(id) for id in product_ids])
