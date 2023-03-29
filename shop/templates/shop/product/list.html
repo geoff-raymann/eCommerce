@@ -26,13 +26,58 @@
         </h1>
         {% for product in products %}
             <div class="item">
-                <a href="{{ product.get_absolute_url }}">
-                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="">
-                </a>
-                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
-                <br>
-                ${{ product.price }}
+                <div>
+                    <a href="{{ product.get_absolute_url }}" class="image-show">
+                        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" style="width: 100%; " class="image" 
+                        data-image1="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"
+                        data-image2="{% if product.image2 %}{{ product.image2.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"
+                        onmouseover="toggleImage(this, true)" 
+                        onmouseout="toggleImage(this, false)">
+                    </a>
+                </div>
+                <div class="meta-data">
+                    <span class="product-name">
+                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                    </span>
+                   <span class="product-cost">
+                        KES. {{ product.price }}
+                   </span>
+                </div>  
             </div>
-            {% endfor %}
+        {% endfor %}
     </div>
+    <style>
+        .item {
+            display: flex;
+            flex-direction: column;
+            padding: 0px;
+        }
+        .image {
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+            width: 100%;
+        }
+        .meta-data {
+            display: flex;
+            flex-direction: row;
+            background-color: brown;
+            padding: 20px;
+            text-align: start;
+            column-gap: 30%;
+        }
+        /* .product-price {
+            text-align: center;
+            border-width: 20px;
+        } */
+    </style>
+    <script>
+        function toggleImage(img, hover) {
+            if (hover) {
+                img.src = img.dataset.image2;
+            } else {
+                img.src = img.dataset.image1;
+            }
+        }
+    </script>
+
 {% endblock %}

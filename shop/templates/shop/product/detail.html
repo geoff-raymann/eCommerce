@@ -6,23 +6,39 @@
     {{ product.name }}
 {% endblock %}
 
+
 {% block content %}
     <div class="product-detail">
-        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="">
-        <h1>{{ product.name }}</h1>
-        <h2>
-            <a href="{{ product.category.get_absolute_url }}">
-                {{ product.category }}
-            </a>
-        </h2>
-        <p class="price">${{ product.price }}</p>
-        <form action="{% url 'cart:cart_add' product.id %}" method="post">
-            {{ cart_product_form }}
-            {% csrf_token %}
-            <input type="submit" value="{% trans 'Add to cart' %}">
-        </form>
-        {{ product.description|linebreaks }}
-
+        <div class="design-images">
+            <div class="flex-container">
+                <img src="{% if product.image2 %}{{ product.image2.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" class="smaller-image" onclick="swapImage(this)" id="image2">
+                <img src="{% if product.image3 %}{{ product.image3.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" class="smaller-image" id="image3" onclick="swapImage(this)">
+                <img src="{% if product.image4 %}{{ product.image4.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" class="smaller-image" id="image4" onclick="swapImage(this)"> 
+                <img src="{% if product.image5 %}{{ product.image5.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" class="smaller-image" id="image5" onclick="swapImage(this)"> 
+                <img src="{% if product.image6 %}{{ product.image6.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" class="smaller-image" id="image6" onclick="swapImage(this)"> 
+                <img src="{% if product.image7 %}{{ product.image7.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" class="smaller-image" id="image7" onclick="swapImage(this)"> 
+            </div>
+            <div class="show center">
+                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" class="main-image" style="width: 100%;" id="main-image">
+            </div>
+            <div class="detail-object">
+                <h1>{{ product.name }}</h1>
+                
+                <h2>
+                    <a href="{{ product.category.get_absolute_url }}">
+                        {{ product.category }}
+                    </a>
+                </h2>
+                <p class="price">KES. {{ product.price }}</p>
+                <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                    {{ cart_product_form }}
+                    {% csrf_token %}
+                    <input type="submit" value="{% trans 'Add to cart' %}">
+                </form>
+                {{ product.description|linebreaks }}
+            </div>
+        </div>
+        
         {% if recommended_products %}
             <div class="recommendations">
                 <h3>{% trans "People who bought this also bought" %}</h3>
@@ -38,4 +54,43 @@
             </div>
         {% endif %}
     </div>
+    <style>
+        .design-images{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            padding: 20px;
+            border: 1px;
+            margin: 0px;
+            
+        }
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            width: 150px;
+        }
+        .smaller-image {
+            width: 200px;
+            border-radius: 100%;
+            overflow: hidden;
+        }
+        .detail-object {
+            padding-left: 100px;
+        }
+        
+    </style>
+    <script>
+        function swapImage(sideImage) {
+            // Get the main image element
+            var mainImage = document.getElementById("main-image");
+
+            // Get the URLs for the main and side images
+            var mainImageSrc = mainImage.src;
+            var sideImageSrc = sideImage.src;
+
+            // Swap the image sources
+            mainImage.src = sideImageSrc;
+            sideImage.src = mainImageSrc;
+        }
+
+    </script>
 {% endblock %}
