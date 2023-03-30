@@ -24,43 +24,66 @@
     <div class="product-list" id="main">
         <h1>{% if category %}{{ category.name }}{% else %}{% trans "Products" %}{% endif %}
         </h1>
-        {% for product in products %}
-            <div class="item">
-                <div>
-                    <a href="{{ product.get_absolute_url }}" class="image-show">
-                        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" style="width: 100%; " class="image" 
-                        data-image1="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"
-                        data-image2="{% if product.image2 %}{{ product.image2.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"
-                        onmouseover="toggleImage(this, true)" 
-                        onmouseout="toggleImage(this, false)">
-                    </a>
-                </div>
-                <div class="meta-data">
-                    <span class="product-name">
-                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
-                    </span>
-                   <span class="product-cost">
-                        KES. {{ product.price }}
-                   </span>
-                </div>  
+        <div class="container">
+            <div class="row">
+                {% for product in products %}
+                    <div class="item col-md-4 mb-4">
+                        <div class="card">
+                            <a href="{{ product.get_absolute_url }}" class="image-show">
+                                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" style="width: 200px; height: 200px; " class="image" 
+                                data-image1="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"
+                                data-image2="{% if product.image2 %}{{ product.image2.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"
+                                onmouseover="toggleImage(this, true)" 
+                                onmouseout="toggleImage(this, false)">
+                                <p class="state" style="color: black;">Quicklook</p>
+                            </a>
+                            
+                        </div>
+                        <div class="meta-data card-body">
+                            <span class="product-name">
+                                <a href="{{ product.get_absolute_url }}" style="font-size: large; font-weight: 800;">{{ product.name }}</a>
+                                <br>
+                                <span>
+                                    <p>{{ product.introduction }}Product introduction here</p>
+                                </span>
+                            </span>
+                            <span class="product-cost">
+                                    KES. {{ product.price }}
+                            </span>
+                            <br>
+                            <span>
+                                <p>{{ product.rating }}Product rating</p>
+                            </span>
+                        </div>  
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
+        </div>
+        
     </div>
     <style>
-        .item {
+        .item .col-md-4 .md-4 {
             display: flex;
             flex-direction: column;
-            padding: 0px;
+            padding: 20px;
+        }
+
+        .container {
+            padding: 10px;
+            width: 50%;
+            margin-left: 5%;
+    
+        }
+        .card {
+            width: fit-content;
+            margin: 5px;
         }
         .image {
-            border-top-right-radius: 20px;
-            border-top-left-radius: 20px;
-            width: 100%;
+            width: fit-content;
         }
         .meta-data {
             display: flex;
-            flex-direction: row;
-            background-color: brown;
+            flex-direction: column;
             padding: 20px;
             text-align: start;
             column-gap: 30%;
