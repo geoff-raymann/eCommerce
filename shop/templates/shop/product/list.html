@@ -27,10 +27,10 @@
         <div class="container">
             <div class="row">
                 {% for product in products %}
-                    <div class="item col-md-4 mb-4">
+                    <div class="item col-md-3 mb-3">
                         <div class="card">
                             <a href="{{ product.get_absolute_url }}" class="image-show">
-                                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" style="width: 200px; height: 200px; " class="image" 
+                                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="" style="width: 90%; height: 150px; " class="image" 
                                 data-image1="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"
                                 data-image2="{% if product.image2 %}{{ product.image2.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"
                                 onmouseover="toggleImage(this, true)" 
@@ -38,23 +38,25 @@
                                 <p class="state" style="color: black;">Quicklook</p>
                             </a>
                             
-                        </div>
-                        <div class="meta-data card-body">
-                            <span class="product-name">
-                                <a href="{{ product.get_absolute_url }}" style="font-size: large; font-weight: 800;">{{ product.name }}</a>
+                        
+                            <div class="meta-data card-body">
+                                <span class="product-name">
+                                    <a href="{{ product.get_absolute_url }}" style="font-size: large; font-weight: 800;">{{ product.name }}</a>
+                                    <br>
+                                    <span>
+                                        <p>{{ product.short_intro }}</p>
+                                
+                                    </span>
+                                </span>
+                                <span class="product-cost" style="font-weight: 800;">
+                                        KES. {{ product.price }}
+                                </span>
                                 <br>
                                 <span>
-                                    <p>{{ product.introduction }}Product introduction here</p>
+                                    <p>{{ product.rating }}Product rating</p>
                                 </span>
-                            </span>
-                            <span class="product-cost">
-                                    KES. {{ product.price }}
-                            </span>
-                            <br>
-                            <span>
-                                <p>{{ product.rating }}Product rating</p>
-                            </span>
-                        </div>  
+                            </div> 
+                        </div>
                     </div>
                 {% endfor %}
             </div>
@@ -70,13 +72,16 @@
 
         .container {
             padding: 10px;
-            width: 50%;
+            width: 80%;
             margin-left: 5%;
     
         }
         .card {
-            width: fit-content;
+            width: 100%;
             margin: 5px;
+            padding: 10px;
+            border-style: outset;
+            box-shadow: 2px 2px 2px 2px;
         }
         .image {
             width: fit-content;
@@ -84,9 +89,8 @@
         .meta-data {
             display: flex;
             flex-direction: column;
-            padding: 20px;
+            padding: 0px;
             text-align: start;
-            column-gap: 30%;
         }
         /* .product-price {
             text-align: center;

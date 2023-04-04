@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-03 00:01+0300\n"
-"PO-Revision-Date: 2023-03-07 18:28+0000\n"
+"PO-Revision-Date: 2023-04-02 17:21+0000\n"
 "Last-Translator:   <odiwuorgeoff50@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -21,36 +21,36 @@ msgstr ""
 
 #: orders/models.py:11
 msgid "first name"
-msgstr "nombre"
+msgstr ""
 
 #: orders/models.py:12
 msgid "last name"
-msgstr "apellidos"
+msgstr ""
 
 #: orders/models.py:13
 msgid "e-mail"
-msgstr "e-mail"
+msgstr ""
 
 #: orders/models.py:14
 msgid "address"
-msgstr "direccion"
+msgstr ""
 
 #: orders/models.py:15
 msgid "postal code"
-msgstr "codigo postal"
+msgstr ""
 
 #: orders/models.py:16
 msgid "city"
-msgstr "ciudad"
+msgstr ""
 
 #: orders/templates/orders/order/create.html:6
 #: orders/templates/orders/order/create.html:10
 msgid "Checkout"
-msgstr "Verificar"
+msgstr ""
 
 #: orders/templates/orders/order/create.html:13
 msgid "Your order"
-msgstr "Su pedido"
+msgstr ""
 
 #: orders/templates/orders/order/create.html:23
 #, python-format
@@ -59,24 +59,22 @@ msgid ""
 "                        \"%(code)s\" (%(discount)s%% off)\n"
 "                    "
 msgstr ""
-"\n"
-"apagado"
 
 #: orders/templates/orders/order/create.html:30
 msgid "Total"
-msgstr "Total"
+msgstr ""
 
 #: orders/templates/orders/order/create.html:35
 msgid "Place order"
-msgstr "Realizar pedido"
+msgstr ""
 
 #: orders/templates/orders/order/created.html:5
 msgid "Thank You"
-msgstr "Gracias"
+msgstr ""
 
 #: orders/templates/orders/order/created.html:9
 msgid "Thank you!"
-msgstr "¡Gracias!"
+msgstr ""
 
 #: orders/templates/orders/order/created.html:10
 #, python-format
@@ -85,9 +83,7 @@ msgid ""
 "        <p>Your order has been successfully completed. Your order number is <strong>%(order.id)s</strong>.</p>\n"
 "    "
 msgstr ""
-"\n"
-"Su orden ha sido completada satisfactoriamente. tu numero de orden es "
 
 #: orders/urls.py:8
 msgid "create/"
-msgstr "crear/"
+msgstr ""

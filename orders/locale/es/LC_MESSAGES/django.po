@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-03 00:01+0300\n"
-"PO-Revision-Date: 2023-03-07 18:27+0000\n"
-"Last-Translator:   <odiwuorgeoff50@gmail.com>\n"
+"PO-Revision-Date: 2023-04-04 07:18+0000\n"
+"Last-Translator: Geoffrey Odiwuor <odiwuorgeoff50@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -21,27 +21,27 @@ msgstr ""
 
 #: orders/models.py:11
 msgid "first name"
-msgstr "nombre"
+msgstr "Nombre"
 
 #: orders/models.py:12
 msgid "last name"
-msgstr "apellidos"
+msgstr "Apellidos"
 
 #: orders/models.py:13
 msgid "e-mail"
-msgstr "e-mail"
+msgstr "E-mail"
 
 #: orders/models.py:14
 msgid "address"
-msgstr "direccion"
+msgstr "Direccion"
 
 #: orders/models.py:15
 msgid "postal code"
-msgstr "codigo postal"
+msgstr "Codigo postal"
 
 #: orders/models.py:16
 msgid "city"
-msgstr "ciudad"
+msgstr "Ciudad"
 
 #: orders/templates/orders/order/create.html:6
 #: orders/templates/orders/order/create.html:10
@@ -58,7 +58,9 @@ msgid ""
 "\n"
 "                        \"%(code)s\" (%(discount)s%% off)\n"
 "                    "
-msgstr "apagado"
+msgstr ""
+"\n"
+"apagado"
 
 #: orders/templates/orders/order/create.html:30
 msgid "Total"

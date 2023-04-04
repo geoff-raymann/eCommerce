@@ -27,6 +27,7 @@ class Product(TranslatableModel):
     translations = TranslatedFields(
         name = models.CharField(max_length=200, db_index=True),
         slug = models.SlugField(max_length=200, db_index=True),
+        short_intro = models.CharField(max_length=200, blank=True),
         description = models.TextField(blank=True)
     )
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
@@ -37,6 +38,8 @@ class Product(TranslatableModel):
     image5 = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
     image6 = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
     image7 = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
+    video1 = models.FileField(upload_to='products/%Y/%m/%d', blank=True, null=True)
+    video2 = models.URLField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
